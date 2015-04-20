@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Prototipo">
+	<meta name="author" content="Simone Miranda Myrrha">
+
+	<title>Home</title>
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Styles -->
+
+	<link href="css/grid.css" media="screen" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Oswald:400,300,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- JavaScript -->
+	<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="js/jput.js"></script>
+	<script src="js/html5.js" ></script>
+	
+	<script>	
+		$(document).ready(function(){
+			$('#main_div').jPut({
+					ajax_url:'potions.json',
+					name:'template',
+					dataName:'potions',
+					error:function(e){
+						alert(e);
+					}
+			});	
+	       
+	     
+	  	});
+	</script>	
+</head>
+
+<body>
+	
+	<header class="branding">
+		<div class="container">
+    		<div class="headerdetails"> 
+    			<!-- Logo-->
+    			<a class="logo pull-left" href="index.html">
+    				<img title="" alt="" src="img/logo.png">
+    			</a>
+		        
+		        <!--Busca-->
+		        <div class="pull-left">
+		            <form class="form-search top-search">
+		                <button class="submit-lente" data-original-title="Search"> <i class="fa fa-search"></i></button>
+		                <input type="text" class="input-medium search-query" placeholder="Search our stock">
+
+		            </form>
+		        </div>
+		        <!--Freeshiping e carrinho-->
+		        <div class="pull-right">
+            		<div class="box grid_2">
+            			<span class="text">Free Shipping</span>
+            			<span class="des">on orders over $50</span>
+            		</div>
+            		<div class="box grid_2">
+            			<img title="" alt="" src="img/bag.png">
+          	 			<span class="label">BAG: </span> 1
+            		</div>
+            		
+        		</div>
+
+   			 </div>
+		</div>
+
+		<div class="clear"></div>
+		<div id="categorymenu">
+			<nav class="subnav container">
+				<ul class="nav-pills categorymenu ">
+					<li><a>Potions </a>
+					    <div>
+					        <ul>
+					            <li><a href="#">Potions 1</a> </li>
+					            <li><a href="#">Potions 2</a> </li>
+					        </ul>
+					    </div>
+					</li>
+				    <li><a href="#">Ingredients </a> 
+				    	<div>
+					        <ul>
+					            <li><a href="#">Ingredients 1</a> </li>
+					            <li><a href="#">Ingredients 2</a> </li>
+					        </ul>
+					    </div>
+				    </li>
+				    <li><a href="#">Books </a> 
+				    	<div>
+					        <ul>
+					            <li><a href="#">Books 1</a> </li>
+					            <li><a href="#">Books 2</a> </li>
+					        </ul>
+					    </div>
+				    </li>
+				    <li><a href="#">Supplies </a> 
+				    	<div>
+					        <ul>
+					            <li><a href="#">Supplies 1</a> </li>
+					            <li><a href="#">Supplies 2</a> </li>
+					        </ul>
+					    </div>
+				    </li>
+				    <li><a href="#">Charms </a> 
+				    	<div>
+					        <ul>
+					            <li><a href="#">Charms 1</a> </li>
+					            <li><a href="#">Charms 2</a> </li>
+					        </ul>
+					    </div>
+				    </li>
+				    <li><a class="mark" href="#">Clearance! </a></li>
+				    <li class="areadmin"><a href="">Sign IN </a> or <a href="">Sign Up</a></li>
+				</ul>
+			</nav>
+		</div>
+    </header><!-- end header -->
+    <section class='home'>
+    	<div class="brandcrumb container">Potions</div>
+    	<div class="container">
+    		
+			
+			<ul class="lb-album" id="main_div" >
+				<div jPut="template" jput-ajax_url="potions.json" jput-dataName="potions" jput-jsondata='[]'>
+				<li>
+					<a href="#image-{{json.id}}">
+						<img src="products/{{json.image}}" alt="">
+						<span class="info">
+							{{json.name}}<span> ${{json.price}}</span>
+						</span>
+							
+					</a>
+					<div class="lb-overlay" id="image-{{json.id}}">
+						<div>
+							<div class="pull-left">
+								<img src="products/ampliada/{{json.image}}" alt="{{json.name}}" />
+							</div>
+							<div class="description">
+								<a href="#page" class="lb-close"><i class="fa fa-times"></i></a>
+						
+								<h3 class="name">{{json.name}}</h3>
+								<h3>Use/Effect:</h3>
+								<p>{{json.effect}}</p>
+								<h3>Ingredientes</h3>
+								<ul>
+									<li>{{json.ingredients}}</li>
+								</ul>
+								<h3 class="price">Price</h3>
+								<p class="price"> ${{json.price}}</p>
+								<button data-original-title="ADD TO CART" class="btn_submit"> ADD TO CART</button>
+
+							</div>
+							
+						</div>
+							
+					</div>
+				</li>
+				</div>
+			</ul>
+    	</div>
+    </section>
+    <div class="clear"></div>
+	<!-- end container home -->
+    <footer class="footer">
+    	<div class="container">
+    		<section class="redesocial">
+    		
+    			<div class="grid_6">
+    				<ul class="links_footer">
+    					<li><a href="">COMPANY RETURNS</a></li>
+    					<li><a href="">CONTACT US CARRERS</a></li>
+    					<li><a href="">SHIPPING</a></li>
+    				</ul>
+    				<div class="clear"></div>
+    				<ul class="icon_redesocial">
+    					<li><a href=""><img src="img/icon_facebook.png" alt=""></a></li>
+    					<li><a href=""><img src="img/icon_twitter.png" alt=""></a></li>
+    					<li><a href=""><img src="img/icon_pinterest.png" alt=""></a></li>
+    					<li><a href=""><img src="img/icon_t.png" alt=""></a></li>
+    					<li><a href=""><img src="img/icon_g+.png" alt=""></a></li>
+    					
+    				</ul>
+    				<div class="clear"></div>
+    				<copy class="copy">@ 2015 Merlin's Potions. All Rights Reserved</copy>
+    			</div>
+    			<div class="grid_5 newsletter">
+    				<h3>Sign up for our Newsletter</h3>
+    				<p>Sign up for our newsletter & fet exclusive discounts.</p>
+    				<form action="" class="form-news">
+    					<input type="text" class="input-medium search-query" placeholder="Enter your e-mail">
+    					<button data-original-title="submit" class="btn_submit"> SUBMIT</button>
+
+    				</form>
+
+    			</div> 
+			
+
+	    	</section>
+	    	<div class="clear"></div>
+    	</div>
+    </footer>
+    <!-- end container footer -->
+	
+	
+</body>
+</html>
